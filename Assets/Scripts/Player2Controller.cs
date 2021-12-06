@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
-
     public float playerSpeed = 5f;
 
     public Rigidbody2D rb;
@@ -16,7 +13,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.y = -Input.GetAxisRaw("Vertical"); //reversing the input
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
@@ -30,6 +27,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMovement()
     {
-        rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position - movement * playerSpeed * Time.fixedDeltaTime);    //reversing the movement
     }
 }
