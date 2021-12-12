@@ -8,11 +8,6 @@ public class TimeController : MonoBehaviour
 
     public float timeRemaining = 100;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (timeRemaining > 0)
@@ -24,8 +19,6 @@ public class TimeController : MonoBehaviour
             gameOverController.GameOverScreen();
         }
 
-        Debug.Log("time remaining = " + timeRemaining);
-
         DisplayTime(timeRemaining);
     }
 
@@ -35,4 +28,9 @@ public class TimeController : MonoBehaviour
         timerText.text = "Time: " + (int)timeRemaining;
     }
 
+    public void StopTimer()
+    {
+        int levelScore = (int)timeRemaining;
+        PlayerPrefs.SetInt("levelScore", levelScore);
+    }
 }

@@ -8,23 +8,23 @@ public class GameOverController : MonoBehaviour
     public Button replayButton;
     public Button lobbyButton;
 
-    public GameObject gameOverMenu;
+    public GameObject gameOverScreen;
 
     public void GameOverScreen()
     {
-        gameOverMenu.SetActive(true);
+        gameOverScreen.SetActive(true);
     }
 
     public void OnClickReplayButton()
     {
-        gameOverMenu.SetActive(false);
+        gameOverScreen.SetActive(false);
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
     }
 
     public void OnClickLobbyButton()
     {
-        gameOverMenu.SetActive(false);
+        gameOverScreen.SetActive(false);
         SceneManager.LoadScene(0);
     }
 }
